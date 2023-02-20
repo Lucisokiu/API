@@ -1,0 +1,328 @@
+
+<link rel="stylesheet" href="../../../css/c3.min.css">
+<link rel="stylesheet" href="../../../css/data-table/bootstrap-table.css">
+<link rel="stylesheet" href="../../../css/data-table/bootstrap-editable.css">
+<link rel="stylesheet" href="../../../css/emojionearea.min.css">
+<link rel="stylesheet" href="../../../css/emojione.css">
+<script type="text/javascript" src="../../../js/emojionearea.min.js"></script>
+<script type="text/javascript" src="../../../js/emojione.js"></script>
+
+
+
+    <!-- Breadcome start-->
+<div class="breadcome-area mg-b-30 small-dn">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcome-list map-mg-t-40-gl shadow-reset">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="breadcome-heading">
+                                <h2>Welcome To Adminpro</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="breadcome-menu">
+                                <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                </li>
+                                <li><span class="bread-blod">Data Table</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Breadcome End-->
+<!-- Creat posts-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #393939;">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color: #ffffff;font-weight: bold;font-size: 30px;" id="exampleModalLabel">Creat new user</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:#ffffff;font-size: 30px;margin-top: -8%;">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="/admin/tablepost" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">what are you thinking?</label>
+                        <input type="text" name="document" class="form-control" id="document">
+                        </div>
+                        <div class="form-group">
+                        <label for="image">Images</label>
+                        <input type="file" class="form-control" id="image" name="image" multiple>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Edit post -->
+<div class="modal fade" id="exampleModaltrue" tabindex="-1" role="dialog" aria-labelledby="exampleModaltrueLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #393939;">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color: #ffffff;font-weight: bold;font-size: 30px;" id="exampleModaltrueLabel">Edit Posts</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:#ffffff;font-size: 30px;margin-top: -8%;">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="formEdit" method="POST" action="">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="document">Text</label>
+                        <input type="text" name="document" class="form-control" id="editdocument">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Check posts -->
+<div class="modal fade" id="exampleModalposts" tabindex="-1" role="dialog" aria-labelledby="exampleModalpostsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #393939;">
+            <p hidden id="idpostsmodal"></p>
+            <div class="modal-header">
+               <div class="checkuserposts" style="padding: 10px;color: #ffffff;">
+                   <img id="imageuserposts" src="" alt="" style="border: 2px solid #585858; border-radius: 100%;width: 50px;height: 50px;float: left; margin-right: 10px;">
+                   <div style="margin-top: 5px;">
+                        <span  id="editnameposts"></span>
+                   </div>
+                   <div>
+                        <span  id="timeposts" style="color: #C0C0C0; font-size: 12px;"></span>
+                   </div>
+               </div>
+            </div>
+            <div style="color: #ffffff;">
+                <div style="margin:10px;">
+                    <span id="documentpost"></span>
+                </div>
+                <div id="balabala" style="text-align: center;">
+            
+                </div>
+                <div style="margin:5px 0 0 20px;">
+                    <img src="../../../img/iconlike.png" alt="" width="20px" height="20px" style="border-radius: 100%;">
+                    <span id="numberlikeposts"></span> <span> Like</span>
+                    <span style="float: right;margin-right: 20px;">Bình luận</span> 
+                    <span id="numbercmtposts" style="float: right;margin-right: 5px;"></span>
+                </div>
+                <div>
+                    <table class="table table_like_cmt">
+                          <tr >
+                            <th scope="col" style="width: 33%;" id="likepostsmodal"><i class="far fa-thumbs-up" id="buttonlikeposts"></i> Thích</th>
+                            <th scope="col" style="width: 34%;" id="cmtpostsmodal"><i class="far fa-comment-alt"></i> Comment</th>
+                            <th scope="col" style="width: 33%;"><i class="fas fa-share"></i> Share</th>
+                          </tr>
+                    </table>
+                </div>
+            </div>
+            <hr style="width: 98%;margin-top: -20px;">
+            <!-- // -->
+            <div id="showcomment">
+                <!-- <div class="commentuserposts">
+                    <div class="checkuserposts" style="padding: 10px;color: #ffffff;">
+                        <div class="avatauserposts">
+                            <img id="imageuserpostscomment" src="" alt="">
+                        </div>
+                        <div class="divtextcomment">
+                            <table>
+                                <tr>
+                                    <td style="width: 95%;">
+                                        <div class="textcomment">
+                                            <label  id="usercmtposts">Thắng Nguyễn</label>
+                                            <span  id="textcmtuserposts">Bài viết gì đâu mà xàm thấy mẹ  aaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaaaa aaaaaaa aaaaaaa như cái cc</span>
+                                        </div>
+                                    </td>
+                                    <td style="width: 5%;">
+                                        <span id="showmenucomment"><i class="fas fa-ellipsis-h"></i></span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <img id="imgtextcmt" src="https://i.pinimg.com/originals/a8/45/76/a84576a04c1874304735604d9f47d5a4.jpg" alt="">
+                            <div class="replycomment">
+                                <span><a href="">Thích </a>- </span><span><a href="">Trả lời </a>- </span> <span> Time</span> 
+                                <div id="replycomment">
+                                    <div class="newtextreplycomment">
+                                        <div class="avatauserposts">
+                                            <img id="imageuserposts" src="" alt="">
+                                        </div>
+                                        <div class="newtext">
+                                            <textarea id="emojionearea"></textarea>
+                                            <label for="file-input">
+                                                <i class="fas fa-camera"></i>
+                                            </label>
+                                            <input type="file" id="file-input">
+                                            <i class="fas fa-times" id="closefileupload" hidden></i>
+                                            <div id="beforeupload">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!--  -->
+            <div class="newtextcomment">
+                <div class="avatauserposts">
+                    <img id="imageuserposts" src="" alt="">
+                </div>
+                <!-- <form action="" method="POST"> -->
+                    <div class="newtext">
+                        <textarea id="emojionearea1"></textarea>
+                            <form action="/admin/comment">
+                                <label for="file-input">
+                                    <i class="fas fa-camera"></i>
+                                </label>
+                                <input type="file" id="file-input" name="imgcomment">
+                            </form>
+                        <i class="fas fa-times" id="closefileupload" hidden></i>
+                        <div id="beforeupload">
+                            <!-- see file before upload -->
+                        </div>
+                    </div>
+                <!-- </form> -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- table uers-->
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="sparkline13-list shadow-reset">
+                    <div class="sparkline13-hd">
+                        <div class="main-sparkline13-hd">
+                            <h1>Projects <span class="table-project-n">Data posts</span> Table</h1>
+                            <div class="sparkline13-outline-icon">
+                                <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                                <span><i class="fa fa-wrench"></i></span>
+                                <span class="sparkline13-collapse-close"><i class="fa fa-times"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sparkline13-graph">
+                        <div class="datatable-dashv1-list custom-datatable-overright">
+                            <div id="toolbar">
+                                <select class="form-control">
+                                    <option value="">Export Basic</option>
+                                    <option value="all">Export All</option>
+                                    <option value="selected">Export Selected</option>
+                                </select>
+                            </div>
+                            <style>table thead tr th {text-align: center;}</style>
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="false" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="id">UserName</th>
+                                        <th >Text</th>
+                                        <th >File</th>
+                                        <th >Like</th>
+                                        <th >Comment</th>
+                                        <th >createdAt</th>
+                                        <th >updatedAt</th>
+                                        <th data-field="action">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <%   postsall.forEach(function(posts){  %>
+                                    <tr>  
+                                        <!-- <input type="hidden" id="iduser" value="<%= user._id %>"> -->
+                                        <td></td>
+                                        
+                                        <td data-username="<%= posts.iduser.username %>" data-postsid="<%= posts._id %>" data-avatauser="<%= posts.iduser.avata %>"><%= posts.iduser.username %></td>
+                                        <td data-document="<%= posts.document %>"><%= posts.document %></td>
+                                        <% if(posts.file.image.length > 0){ %>
+                                        <td  data-image="<%= posts.file.image[0] %>" id="checkposts" data-toggle="modal" data-target="#exampleModalposts">
+                                            <% for(i=0;i < posts.file.image.length ;i++){ %>
+                                            <img  src="../../../uploads/<%= posts.file.image[i] %>" alt="" height="100dp" width="100dp">
+                                            <%}%>
+                                        </td>    
+                                        <%}else if(posts.file.video != " "){ %>
+                                        <td data-video="<%= posts.file.video %>" id="checkposts" data-toggle="modal" data-target="#exampleModalposts" style="padding: 10%;">
+                                            <video id="playvideotable"  width="320" height="240" controls>
+                                                <source  src="../../../uploads/<%= posts.file.video %>" type="video/mp4">
+                                            </video>
+                                        </td>
+                                        <% }; %>
+                                        <%  var likenumber = posts.numberLike ;
+                                            var checklike = 0;
+                                            var BreakException = {};
+                                            if(likenumber.length>0){
+                                                for (var i =0; i < likenumber.length;  i++ ){
+                                                    if(String(likenumber[i].iduserLike) === String(user._id)){
+                                                        %>
+                                                            <td id="<%= posts._id %>" data-likenumber="<%= likenumber.length %>" data-typelikenumber="1" ><%= likenumber.length %></td>
+                                                        <%
+                                                        checklike = 1;
+                                                        break;
+                                                    };
+                                                };
+                                               if(checklike != 1){
+                                                %>
+                                                    <td id="<%= posts._id %>" data-likenumber="<%= likenumber.length %>" data-typelikenumber="0" ><%= likenumber.length %></td>
+                                                <%
+                                               }
+                                            }else {
+                                                %>
+                                                    <td id="<%= posts._id %>" data-likenumber="<%= likenumber.length %>" data-typelikenumber="0" ><%= likenumber.length %></td>
+                                                <%
+                                            };
+                                        %>
+                                        <td data-cmtnumber="<%= posts.numberCmt %>"><%= posts.numberCmt %></td>
+                                        <td data-creat="<%= posts.createdAt %>"><%= posts.createdAt %></td>
+                                        <td data-update="<%= posts.updatedAt %>"><%= posts.updatedAt %></td>
+                                        <td class="datatable-ct" data-iduser="<%= posts.iduser._id %>">
+                                            <a class="btn btn-danger" href="tablepost/delete/<%= posts._id %>"><i class="far fa-trash-alt"></i></a>
+                                            <button type="button" class="btn btn-warning" id="editbuttonposts" data-toggle="modal" data-target="#exampleModaltrue">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- place the scripts at the end of the html page -->
+<script src="../../../js/posts.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../../../js/counterup/jquery.counterup.min.js"></script>
+<script src="../../../js/counterup/waypoints.min.js"></script>
+<script src="../../../js/peity/jquery.peity.min.js"></script>
+<script src="../../../js/peity/peity-active.js"></script>
+<script src="../.././js/sparkline/jquery.sparkline.min.js"></script>
+<script src="../../../js/sparkline/sparkline-active.js"></script>
+<script src="../../../js/data-table/bootstrap-table.js"></script>
+<script src="../../../js/data-table/tableExport.js"></script>
+<script src="../../../js/data-table/data-table-active.js"></script>
+<script src="../../../js/data-table/bootstrap-table-editable.js"></script>
+<script src="../../../js/data-table/bootstrap-editable.js"></script>
+<script src="../../../js/data-table/bootstrap-table-resizable.js"></script>
+<script src="../../../js/data-table/colResizable-1.5.source.js"></script>
+<script src="../../../js/data-table/bootstrap-table-export.js"></script>
+
+
